@@ -9,14 +9,14 @@
 #define LCD_I2C_ADDR  0x20  // PCF8754
 
 // Create the LCD object
-LiquidCrystal_I2C lcd(0x20,8,2);  // set the LCD address to 0x20 for a 16 chars and 2 line display
-// LCD como duas linhas de 8 char ... mas est~o na mesma linha
+LiquidCrystal_I2C lcd(LCD_I2C_ADDR,16,2);  // set the LCD address, number of columns and number of rows
 
 // Create the MCP9808 temperature sensor object
 Adafruit_MCP9808 tempsensor = Adafruit_MCP9808();
 
 #define THERM_ICO_CUR  1
 #define THERM_ICO_MIN  2
+#define THERM_ICO_MAX  3
 
 byte thermo_ico_cur[8] = //icon for thermometer
 {
@@ -42,13 +42,30 @@ byte thermo_ico_min[8] = //icon for thermometer
     B01110
 };
 
+byte thermo_ico_max[8] = //icon for thermometer
+{
+    B01110,
+    B01110,
+    B01110,
+    B01110,
+    B01110,
+    B11111,
+    B11111,
+    B01110
+};
+
 void setup()
 {
   // init lcd
   lcd.init();
   lcd.backlight();
-  lcd.createChar(THERM_ICO_CUR,thermo_ico_cur);    // icon for current temperature
-  lcd.createChar(THERM_ICO_MIN,thermo_ico_min); // icon for max temperature
+  lcd.createChar(THERM_ICO_CUR,thermo_ico_cur);  // icon for current temperature
+  lcd.createChar(THERM_ICO_MIN,thermo_ico_min);  // icon for min temperature
+  lcd.createChar(THERM_ICO_MAX,thermo_ico_max);  // icon for max temperature
+   
+  lcd.clear();
+  lcd.print("v0.1.0");
+  delay(1000);
   
   // init serial
   Serial.begin(9600);
@@ -88,7 +105,7 @@ void loop()
   // Send to LCD
   lcd.clear();
   
-  lcd.setCursor(0,0);
+  lcd.setCursor(4,0);
   lcd.write(THERM_ICO_CUR); // write thermo_ico_cur
   lcd.print(c);
   lcd.print((char)223); //degree sign
@@ -100,6 +117,12 @@ void loop()
   lcd.print((char)223); //degree sign
   lcd.print("C");
   //lcd.print(max);
+  
+  lcd.setCursor(8,1);
+  lcd.write(THERM_ICO_MAX); // write thermo_ico_max  
+  lcd.print(max);
+  lcd.print((char)223); //degree sign
+  lcd.print("C");
   
   // Send to serial port
   //  Serial.print("Temp: "); Serial.print(c); Serial.print("*C\t"); 
@@ -115,5 +138,5 @@ void loop()
   Serial.print(avg);  // avg temperature in Celsius  
   Serial.println(",0,0"); // dummy data
   
-  delay(1000);
+  delay(3000);
 }
