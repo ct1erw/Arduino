@@ -65,16 +65,16 @@ void setup()
    
   lcd.clear();
   lcd.print("v0.1.0");
-  delay(1000);
+  delay(100);
   
   // init serial
   Serial.begin(9600);
-  Serial.println("Thermo v0.1.0");
+  Serial.println("# Thermo v0.1.0");
   
   // Make sure the sensor is found, you can also pass in a different i2c
   // address with tempsensor.begin(0x19) for example
   if (!tempsensor.begin()) {
-    Serial.println("Couldn't find MCP9808!");
+    Serial.println("# Couldn't find MCP9808!");
 //    while (1);
   }
 }
