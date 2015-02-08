@@ -9,7 +9,7 @@
 #define LCD_I2C_ADDR  0x20  // PCF8754
 
 // Create the LCD object
-LiquidCrystal_I2C lcd(LCD_I2C_ADDR);  // set the LCD address, number of columns and number of rows
+LiquidCrystal_I2C lcd(LCD_I2C_ADDR,16,2);  // set the LCD address, number of columns and number of rows
 
 // Create the MCP9808 temperature sensor object
 Adafruit_MCP9808 tempsensor = Adafruit_MCP9808();
@@ -57,16 +57,16 @@ byte thermo_ico_max[8] = //icon for thermometer
 void setup()
 {
   // init lcd
-  //lcd.init();
+  lcd.init();
   lcd.backlight();
   lcd.createChar(THERM_ICO_CUR,thermo_ico_cur);  // icon for current temperature
   lcd.createChar(THERM_ICO_MIN,thermo_ico_min);  // icon for min temperature
   lcd.createChar(THERM_ICO_MAX,thermo_ico_max);  // icon for max temperature
    
-  lcd.clear();
+  lcd.home();
   lcd.print("v0.1.0");
-  delay(100);
-  
+  delay(300);
+    
   // init serial
   Serial.begin(9600);
   Serial.println("# Thermo v0.1.0");
