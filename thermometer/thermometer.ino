@@ -57,7 +57,7 @@ byte thermo_ico_max[8] = //icon for thermometer
 void setup()
 {
   // init lcd
-  //lcd.init();
+  lcd.begin(16,2);
   lcd.backlight();
   lcd.createChar(THERM_ICO_CUR,thermo_ico_cur);  // icon for current temperature
   lcd.createChar(THERM_ICO_MIN,thermo_ico_min);  // icon for min temperature
