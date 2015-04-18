@@ -11,18 +11,17 @@
 // if you want to know about FFT the http://www.dspguide.com/pdfbook.htm //
 ///////////////////////////////////////////////////////////////////////////
 
-#include <LiquidCrystal.h>
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
 
-///////////////////////////////////////////////
-// select the pins used on the LCD panel      /
-///////////////////////////////////////////////
-//  LiquidCrystal lcd(RS, E, D4, D5, D6, D7) //
-///////////////////////////////////////////////
 
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+#define LCD_I2C_ADDR  0x20  // PCF8754
 
-const int colums = 20; /// have to be 16 or 20
-const int rows = 4;  /// have to be 2 or 4
+// Create the LCD object
+LiquidCrystal_I2C lcd(LCD_I2C_ADDR,16,2);  // set the LCD address, number of columns and number of rows
+
+const int colums = 16; /// have to be 16 or 20
+const int rows = 2;  /// have to be 2 or 4
 
 int lcdindex = 0;
 int line1[colums];
@@ -118,6 +117,13 @@ void setup() {
   cosine = cos(omega);
   coeff = 2.0 * cosine;
 
+
+  lcd.init();
+  lcd.backlight();
+  lcd.home();
+  lcd.print("v0.1.0");
+  delay(300);
+  
 ///////////////////////////////
 // define special characters //
 ///////////////////////////////
@@ -425,4 +431,5 @@ void updateinfolinelcd(){
 	}
 
 }
+
 
