@@ -99,7 +99,8 @@ void loop()
   if(c < min) {
     min = c;
   }
-  // Avergage
+  // Average
+  // TODO: This is wrong. Check https://github.com/RobTillaart/Arduino/tree/master/libraries/RunningAverage
   avg = (avg + c)/2;
   
   // Send to LCD
