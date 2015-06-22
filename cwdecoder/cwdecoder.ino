@@ -99,6 +99,10 @@ char code[20];
 int stop = LOW;
 int wpm;
 
+// function prototypes
+void printascii(int asciinumber);
+void docode();
+void updateinfolinelcd();
 
 ////////////////
 // init setup //
