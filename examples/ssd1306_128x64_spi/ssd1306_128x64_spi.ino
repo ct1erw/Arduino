@@ -154,8 +154,10 @@ void setup()   {
   display.setTextColor(WHITE);
   display.setCursor(0,0);
   display.println("Hello, world!");
+  
   display.setTextColor(BLACK, WHITE); // 'inverted' text
-  display.println(3.141592);
+  display.println("3.141592");
+  
   display.setTextSize(2);
   display.setTextColor(WHITE);
   display.print("0x"); display.println(0xDEADBEEF, HEX);
@@ -215,9 +217,9 @@ void testdrawbitmap(const uint8_t *bitmap, uint8_t w, uint8_t h) {
       icons[f][YPOS] += icons[f][DELTAY];
       // if its gone, reinit
       if (icons[f][YPOS] > display.height()) {
-	icons[f][XPOS] = random(display.width());
-	icons[f][YPOS] = 0;
-	icons[f][DELTAY] = random(5) + 1;
+        icons[f][XPOS] = random(display.width());
+        icons[f][YPOS] = 0;
+        icons[f][DELTAY] = random(5) + 1;
       }
     }
    }
