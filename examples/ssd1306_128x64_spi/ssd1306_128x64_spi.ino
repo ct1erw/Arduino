@@ -76,7 +76,7 @@ void setup()   {
   // Since the buffer is intialized with an Adafruit splashscreen
   // internally, this will display the splashscreen.
   display.display();
-  delay(2000);
+  delay(1000);
 
   // Clear the buffer.
   display.clearDisplay();
@@ -87,64 +87,64 @@ void setup()   {
   // NOTE: You _must_ call display after making any drawing commands
   // to make them visible on the display hardware!
   display.display();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
 
   // draw many lines
   testdrawline();
   display.display();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
 
   // draw rectangles
   testdrawrect();
   display.display();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
 
   // draw multiple rectangles
   testfillrect();
   display.display();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
 
   // draw mulitple circles
   testdrawcircle();
   display.display();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
 
   // draw a white circle, 10 pixel radius
   display.fillCircle(display.width()/2, display.height()/2, 10, WHITE);
   display.display();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
 
   testdrawroundrect();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
 
   testfillroundrect();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
 
   testdrawtriangle();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
    
   testfilltriangle();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
 
   // draw the first ~12 characters in the font
   testdrawchar();
   display.display();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
 
   // draw scrolling text
   testscrolltext();
-  delay(2000);
+  delay(1000);
   display.clearDisplay();
   
   // text display tests
@@ -158,7 +158,7 @@ void setup()   {
   display.setTextColor(WHITE);
   display.print("0x"); display.println(0xDEADBEEF, HEX);
   display.display();
-  delay(2000);
+  delay(5000);
 
   // miniature bitmap display
   display.clearDisplay();
