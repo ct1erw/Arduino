@@ -26,7 +26,7 @@ All text above, and the splash screen must be included in any redistribution
 #define OLED_CLK   12
 #define OLED_DC    9
 #define OLED_CS    8
-#define OLED_RESET 10
+#define OLED_RESET 10   // not connected
 Adafruit_SSD1306 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
 
 /* Uncomment this block to use hardware SPI
