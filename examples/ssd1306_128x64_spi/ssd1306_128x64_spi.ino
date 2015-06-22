@@ -36,6 +36,8 @@ Adafruit_SSD1306 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
 Adafruit_SSD1306 display(OLED_DC, OLED_RESET, OLED_CS);
 */
 
+#define DELAY 500    // delay in ms between demos
+
 #define NUMFLAKES 10
 #define XPOS 0
 #define YPOS 1
@@ -76,7 +78,7 @@ void setup()   {
   // Since the buffer is intialized with an Adafruit splashscreen
   // internally, this will display the splashscreen.
   display.display();
-  delay(1000);
+  delay(DELAY);
 
   // Clear the buffer.
   display.clearDisplay();
@@ -87,64 +89,64 @@ void setup()   {
   // NOTE: You _must_ call display after making any drawing commands
   // to make them visible on the display hardware!
   display.display();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
 
   // draw many lines
   testdrawline();
   display.display();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
 
   // draw rectangles
   testdrawrect();
   display.display();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
 
   // draw multiple rectangles
   testfillrect();
   display.display();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
 
   // draw mulitple circles
   testdrawcircle();
   display.display();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
 
   // draw a white circle, 10 pixel radius
   display.fillCircle(display.width()/2, display.height()/2, 10, WHITE);
   display.display();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
 
   testdrawroundrect();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
 
   testfillroundrect();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
 
   testdrawtriangle();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
    
   testfilltriangle();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
 
   // draw the first ~12 characters in the font
   testdrawchar();
   display.display();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
 
   // draw scrolling text
   testscrolltext();
-  delay(1000);
+  delay(DELAY);
   display.clearDisplay();
   
   // text display tests
@@ -158,7 +160,7 @@ void setup()   {
   display.setTextColor(WHITE);
   display.print("0x"); display.println(0xDEADBEEF, HEX);
   display.display();
-  delay(5000);
+  delay(DELAY);
 
   // miniature bitmap display
   display.clearDisplay();
@@ -167,9 +169,9 @@ void setup()   {
 
   // invert the display
   display.invertDisplay(true);
-  delay(1000); 
+  delay(DELAY); 
   display.invertDisplay(false);
-  delay(1000); 
+  delay(DELAY); 
 
   // draw a bitmap icon and 'animate' movement
   testdrawbitmap(logo16_glcd_bmp, LOGO16_GLCD_HEIGHT, LOGO16_GLCD_WIDTH);
@@ -204,7 +206,7 @@ void testdrawbitmap(const uint8_t *bitmap, uint8_t w, uint8_t h) {
       display.drawBitmap(icons[f][XPOS], icons[f][YPOS], logo16_glcd_bmp, w, h, WHITE);
     }
     display.display();
-    delay(200);
+    delay(100);
     
     // then erase it + move it
     for (uint8_t f=0; f< NUMFLAKES; f++) {
@@ -352,11 +354,11 @@ void testscrolltext(void) {
   display.display();
  
   display.startscrollright(0x00, 0x0F);
-  delay(2000);
-  display.stopscroll();
   delay(1000);
+  display.stopscroll();
+  delay(500);
   display.startscrollleft(0x00, 0x0F);
-  delay(2000);
+  delay(1000);
   display.stopscroll();
   delay(1000);    
   display.startscrolldiagright(0x00, 0x07);
