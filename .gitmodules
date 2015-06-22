@@ -7,3 +7,6 @@
 [submodule "libraries/Adafruit-GFX-Library"]
 	path = libraries/Adafruit-GFX-Library
 	url = https://github.com/adafruit/Adafruit-GFX-Library.git
+[submodule "libraries/Si5351Arduino"]
+	path = libraries/Si5351Arduino
+	url = https://github.com/etherkit/Si5351Arduino.git
