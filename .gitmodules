@@ -10,3 +10,6 @@
 [submodule "libraries/Si5351Arduino"]
 	path = libraries/Si5351Arduino
 	url = https://github.com/etherkit/Si5351Arduino.git
+[submodule "libraries/Rotary"]
+	path = libraries/Rotary
+	url = https://github.com/brianlow/Rotary
