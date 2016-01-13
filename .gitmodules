@@ -13,3 +13,6 @@
 [submodule "libraries_not_compatible/Talkie"]
 	path = libraries_not_compatible/Talkie
 	url = https://github.com/adafruit/Talkie.git
+[submodule "libraries/Rotary"]
+	path = libraries/Rotary
+	url = https://github.com/brianlow/Rotary
